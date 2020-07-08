@@ -1,7 +1,5 @@
-package omuomu;
+package omuomu
 
-class App {
-    fun main(args:Array<String>) {
-        println("Hello world !")
-    }
+fun main(args:Array<String>) {
+    HttpServer(12345).start()
 }
