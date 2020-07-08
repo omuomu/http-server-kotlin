@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="401px" height="64px" viewBox="-0.5 -0.5 401 64" content="&lt;mxfile host=&quot;&quot; modified=&quot;2020-07-08T23:43:37.800Z&quot; agent=&quot;5.0 (Macintosh; Intel Mac OS X 10_15_5) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.46.1 Chrome/78.0.3904.130 Electron/7.3.1 Safari/537.36&quot; etag=&quot;kP341soDvS6qak8GrEHc&quot; version=&quot;13.1.3&quot;&gt;&lt;diagram id=&quot;6hGFLwfOUW9BJ-s0fimq&quot; name=&quot;Page-1&quot;&gt;7ZdRb5tADMc/TaTuYVOAlKaPgbSbtFSqlknrHq9wgVuPMzqcJtmnnw/uAjS0S9VsT32p8P9sg/0zbhgFcbH9rFmZ30DK5cgfp9tRMB/5/sV4Sn+NsGuEMLxshEyLtJG8VliK39yKY6uuRcqrniMCSBRlX0xAKZ5gT2Naw6bvtgLZv2vJMn4gLBMmD9UfIsW8Uaf+Rat/4SLL3Z09V1/BnLOtpMpZCpuOFFyNglgDYHNVbGMuTe9cX5q462dO9w+mucJjAsIm4JHJta1tVpZf0T4c7lzF1UYUkimyohUoXNoTj2wmRaboOqFbck3CI9coqFkze4BQkprkQqYLtoO1ebAKWfLgrCgHLX5TWiZtTjrWaLnTM3Y9liaS5DGpmlfkc+uq9Z5IN2zbc1ywCq2QgJSsrMT9voyC6UyoCBChsE62N1QO3z7bX29PjaadQ8FR78jFBkwsZzvoXmjtTTs23qXV8s7IOD9mJzXbZ25h0oXlOcx2esD2AKsUNdIKNTzsR9l0YyWkjEEC8ZwrqJ0cZ8lXOEC5EGkq62QlS4TKvhvq849eqyzqwHnQKt9swUbSgAxZw8M0X7J7Lm+hEijA5NeNb1SCUFh35Twanc9rRWMMiopgoqbCifOGG9bHIQyHEVpm7h35G7Lp24ldDhCL6rUh1BnNJ6WezbRmlDSUprwlamojWZmxPtCxCQfK95Q01Y970k/Ivh5280r3uU4OuRoJKHYl6x2X04hwNcC6zzSi5sbjT+eGrh+T7bX2/wAeTI4D7gbjLcTdf7QO8liyqlKs4O9L+ERL2J8esYXDf7SFPf99DR8JcTxM8YU9PATtBHvYC55ZxPUrcfa+Z09DdGjRDhE9yaKdHKDiKf2otyZVmkMGismrVqX+rVXKU9u91mcB9VtlXqpfHHFnlyRbI5g1iYVboXwr8K5z/dOkog431txtxtrYOUNRaXddoxNlzDasttq4dGa+bdrhIuVamI50Fqkp+uU1Sj2CtU547ycJzX3GnVcwTFVzyVA89tO/ghmZ7YdPfdb5egyu/gA=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs>
+        <clipPath id="mx-clip-4-39-182-26-0">
+            <rect x="4" y="39" width="182" height="26"/>
+        </clipPath>
+        <clipPath id="mx-clip-244-39-152-26-0">
+            <rect x="244" y="39" width="152" height="26"/>
+        </clipPath>
+    </defs>
+    <g>
+        <path d="M 0 26 L 0 0 L 190 0 L 190 26" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="all"/>
+        <path d="M 0 26 L 0 60 L 190 60 L 190 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 0 26 L 190 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="12px">
+            <text x="94.5" y="17.5">
+                AppKt
+            </text>
+        </g>
+        <path d="M 0 30 L 190 30" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" clip-path="url(#mx-clip-4-39-182-26-0)" font-size="12px">
+            <text x="5.5" y="51.5">
+                + main(args:Array&lt;String&gt;): void
+            </text>
+        </g>
+        <path d="M 240 26 L 240 0 L 400 0 L 400 26" fill="#ffffff" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 240 26 L 240 60 L 400 60 L 400 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <path d="M 240 26 L 400 26" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" font-weight="bold" text-anchor="middle" font-size="12px">
+            <text x="319.5" y="17.5">
+                Classname
+            </text>
+        </g>
+        <path d="M 240 30 L 400 30" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+        <g fill="#000000" font-family="Helvetica" clip-path="url(#mx-clip-244-39-152-26-0)" font-size="12px">
+            <text x="245.5" y="51.5">
+                + start(): void
+            </text>
+        </g>
+        <path d="M 190 47 L 240 47" fill="none" stroke="#000000" stroke-miterlimit="10" pointer-events="none"/>
+    </g>
+</svg>
