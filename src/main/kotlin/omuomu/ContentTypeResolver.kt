@@ -25,7 +25,7 @@ class ContentTypeResolver {
         val pathParts: Array<String> = fileName.split("/").toTypedArray()        
 		val lastPart: String = pathParts[pathParts.size - 1]
 
-		val pos: Int = lastPart.lastIndexOf(".");
+		val pos: Int = lastPart.lastIndexOf(".")
 		if (pos > 0 && pos < (lastPart.length - 1)) {
 			return lastPart.substring(pos + 1).toLowerCase()
 		}

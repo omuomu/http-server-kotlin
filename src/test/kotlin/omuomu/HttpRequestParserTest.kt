@@ -13,9 +13,9 @@ import omuomu.HttpRequestParserFactory
 
 
 class HttpRequestParseTest {
-    val  CRLF: String = "\r\n";
-	val  CR: String = "\r";
-	val  LF: String = "\n";
+    val  CRLF: String = "\r\n"
+	val  CR: String = "\r"
+	val  LF: String = "\n"
 
     @Test
     fun testNormalCase() {
