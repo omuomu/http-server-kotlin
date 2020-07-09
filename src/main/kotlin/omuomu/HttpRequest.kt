@@ -5,11 +5,8 @@ import omuomu.HttpHeader
 
 public interface HttpRequest {
 
-    HttpMethod: enum {
-        GET,
-        PUT,
-        POST,
-        DELETE,
+    enum class HttpMethod {
+        GET, PUT, POST, DELETE,
     }
 
     fun getMethod(): HttpMethod
