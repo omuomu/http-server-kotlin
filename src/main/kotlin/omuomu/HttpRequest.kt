@@ -11,6 +11,6 @@ public interface HttpRequest {
 
     fun getPath(): String
 
-    fun getHeaders(): List<HttpHeader>
+    fun getHeaders(): Array<HttpHeader>
 
 }

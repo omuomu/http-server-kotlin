@@ -4,11 +4,11 @@ import omuomu.HttpRequest
 import omuomu.HttpRequest.HttpMethod
 import omuomu.HttpHeader
 
-class HttpRequestImpl(method: HttpMethod, path: String, headers: List<HttpHeader>): HttpRequest {
+class HttpRequestImpl(method: HttpMethod, path: String, headers: Array<HttpHeader>): HttpRequest {
 
     private val method: HttpMethod
     private val path: String
-    private val headers: List<HttpHeader>
+    private val headers: Array<HttpHeader>
 
     init {
         this.method = method
@@ -24,7 +24,7 @@ class HttpRequestImpl(method: HttpMethod, path: String, headers: List<HttpHeader
         return this.path
     }
 
-    override fun getHeaders(): List<HttpHeader> {
+    override fun getHeaders(): Array<HttpHeader> {
         return this.headers
     }
 
