@@ -5,18 +5,22 @@ import omuomu.HttpHeader
 const val MAX_LENGTH = 8192
 
 
-public class HttpHeaderImpl() implements HttpHeader {
+public class HttpHeaderImpl(name: String, value: String): HttpHeader {
 
 
-    val name: String
-    val value: String
+    private val name: String
+    private val value: String
 
-    constructor(val name: String, val value: String) {
+    init {
         this.name = name
         this.value = value
     }
 
-    override fun getName() {}
+    override fun getName(): String {
+        return this.name
+    }
 
-    override fun getValue() {}
+    override fun getValue(): String {
+        return this.value
+    }
 }
