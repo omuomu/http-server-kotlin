@@ -1,4 +1,4 @@
-# HTTP server Kotlin
+# HTTP Server Kotlin
 
 ## 仕様
 
@@ -6,6 +6,6 @@
 * Taransfer-Encoding:chunkedに対応する
 * Last-ModifiedとIf-Modified-Sinceに対応する
 
-### EchoServer
+### Design
 
 ![design](/drawio/design.dio.svg)
