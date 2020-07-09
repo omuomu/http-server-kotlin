@@ -1,6 +1,5 @@
 package omuomu
 
-import java.io.IOException
 import java.io.InputStream
 
 import omuomu.HttpRequest

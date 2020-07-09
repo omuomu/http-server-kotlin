@@ -1,6 +1,4 @@
 package omuomu
-
-import java.util.List
 import omuomu.HttpHeader
 
 public interface HttpRequest {
