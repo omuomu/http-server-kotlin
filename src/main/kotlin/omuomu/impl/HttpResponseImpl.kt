@@ -2,6 +2,7 @@ package omuomu.impl
 
 import java.io.ByteArrayInputStream
 
+import java.io.Closeable
 import java.io.IOException
 import java.io.OutputStream
 import java.io.UnsupportedEncodingException
@@ -10,7 +11,7 @@ import java.util.ArrayList
 import omuomu.HttpHeader
 import omuomu.HttpResponse
 
-class HttpResponseImpl(output: OutputStream): HttpResponse {
+class HttpResponseImpl(output: OutputStream): HttpResponse, Closeable {
 
 	private var output: OutputStream
 
@@ -18,6 +19,7 @@ class HttpResponseImpl(output: OutputStream): HttpResponse {
 
 	private var  headers: Array<HttpHeader>  = arrayOf<HttpHeader>()
 
+	private var headerSent: Boolean = false
 	init {
 		this.output = output
     }
@@ -32,7 +34,14 @@ class HttpResponseImpl(output: OutputStream): HttpResponse {
 
     override fun getOutputStream(): OutputStream {
 		output.write(buildResponseHeader())
+		headerSent = true
 		return output
+	}
+
+	override fun close() {
+		if(!headerSent) {
+			output.write(buildResponseHeader())
+		}
 	}
 
 	private fun buildResponseHeader():ByteArray {

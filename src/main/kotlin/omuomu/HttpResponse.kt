@@ -1,8 +1,9 @@
 package omuomu
 
+import java.io.Closeable
 import java.io.OutputStream
 
-public interface HttpResponse {
+public interface HttpResponse : Closeable {
 
 	fun setStatusCode(statusCode: Int)
 

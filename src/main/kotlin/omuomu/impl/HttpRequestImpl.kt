@@ -28,4 +28,13 @@ class HttpRequestImpl(method: HttpMethod, path: String, headers: Array<HttpHeade
         return this.headers
     }
 
+    override fun getHeader(name: String): HttpHeader {
+        for(h in headers) {
+            if(name.equals(h.getName())) {
+                return h
+            }
+        }
+        return HttpHeaderImpl("","")
+    }
+
 }
