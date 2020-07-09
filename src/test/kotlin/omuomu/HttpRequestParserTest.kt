@@ -11,6 +11,7 @@ import omuomu.impl.HttpRequestParserImpl
 import omuomu.HttpRequest.HttpMethod
 import omuomu.HttpRequestParserFactory
 
+
 class HttpRequestParseTest {
     val  CRLF: String = "\r\n";
 	val  CR: String = "\r";
@@ -18,7 +19,7 @@ class HttpRequestParseTest {
 
     @Test
     fun testNormalCase() {
-        val parser: HttpRequestParser = HttpRequestParserFactory.getParser()
+        val parser: HttpRequestParser = HttpRequestParserFactory().getParser()
 
         val http: String = makeTestRequest(CRLF)
 
@@ -28,7 +29,7 @@ class HttpRequestParseTest {
         assertEquals(request.getMethod(), HttpMethod.GET)
         assertEquals(request.getPath(), "./index.html")
 
-        val headers: List<HttpHeader> = request.getHeaders()
+        val headers: Array<HttpHeader> = request.getHeaders()
         assertEquals(headers.size, 3)
 
         val hostHeader: HttpHeader = headers.get(0)
@@ -44,8 +45,8 @@ class HttpRequestParseTest {
         assertEquals(connectionHeader.getValue(), "keep-alive")
     }
     @Test
-    fun testLineFeed {
-        val parser: HttpRequestParser = HttpRequestParserFactory.getParser()
+    fun testLineFeed() {
+        val parser: HttpRequestParser = HttpRequestParserFactory().getParser()
 
         val http: String = makeTestRequest(LF)
 
@@ -55,7 +56,7 @@ class HttpRequestParseTest {
         assertEquals(request.getMethod(), HttpMethod.GET)
         assertEquals(request.getPath(), "./index.html")
 
-        val headers: List<HttpHeader> = request.getHeaders()
+        val headers: Array<HttpHeader> = request.getHeaders()
         assertEquals(headers.size, 3)
 
         val hostHeader: HttpHeader = headers.get(0)
@@ -73,10 +74,5 @@ class HttpRequestParseTest {
     private fun makeTestRequest(lf: String): String {
         return StringBuilder().append("GET /index.html HTTP/1.1" + lf).append("Host: www.dreamarts.co.jp" + lf)
         .append("User-Agent: Mozilla/5.0" + lf).append("Connection: keep-alive" + lf).append(lf).toString()
-    }
-}
-
-}
-
     }
 }
