@@ -13,11 +13,13 @@ import kotlin.concurrent.thread
 
 const val MAX_AVAILABLE = 10
 
-class HttpServer(listenPort: Int, documentRoot: File) {
+class HttpServer {
+
     val Semaphore = Semaphore(MAX_AVAILABLE)
-    private var documentRoot: File? = null
-    private var listenPort: Int = 0
-    init {
+    private var documentRoot: File?
+    private var listenPort: Int
+
+    constructor(listenPort: Int, documentRoot: File) {
         this.documentRoot = documentRoot
         this.listenPort = listenPort
     }

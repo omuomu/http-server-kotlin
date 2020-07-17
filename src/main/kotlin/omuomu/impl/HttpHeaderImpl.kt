@@ -5,16 +5,13 @@ import omuomu.HttpHeader
 const val MAX_LENGTH = 8192
 
 
-public class HttpHeaderImpl(name: String, value: String): HttpHeader {
+public class HttpHeaderImpl: HttpHeader {
 
 
     private val name: String
     private val value: String
 
-    init {
-        if (name == null || value == null) {
-            throw NullPointerException()
-        }
+    constructor(name: String, value: String) {
         if (name.toByteArray().size > MAX_LENGTH) {
             throw IllegalArgumentException()
         }

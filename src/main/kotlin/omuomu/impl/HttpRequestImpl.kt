@@ -4,13 +4,13 @@ import omuomu.HttpRequest
 import omuomu.HttpRequest.HttpMethod
 import omuomu.HttpHeader
 
-class HttpRequestImpl(method: HttpMethod, path: String, headers: Array<HttpHeader>): HttpRequest {
+class HttpRequestImpl: HttpRequest {
 
     private val method: HttpMethod
     private val path: String
     private val headers: Array<HttpHeader>
 
-    init {
+    constructor(method: HttpMethod, path: String, headers: Array<HttpHeader>) {
         this.method = method
         this.path = path
         this.headers = headers
@@ -28,13 +28,12 @@ class HttpRequestImpl(method: HttpMethod, path: String, headers: Array<HttpHeade
         return this.headers
     }
 
-    override fun getHeader(name: String): HttpHeader {
+    override fun getHeader(name: String): HttpHeader? {
         for(h in headers) {
             if(name.equals(h.getName())) {
                 return h
             }
         }
-        return HttpHeaderImpl("","")
+        return null
     }
-
 }
