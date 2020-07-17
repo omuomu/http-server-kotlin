@@ -48,10 +48,17 @@ class HttpResponseImpl(output: OutputStream): HttpResponse, Closeable {
 		try {
 			val http: StringBuilder = StringBuilder()
 
-			http.append("HTTP/1.0 ").append(statusCode).append(" ").append(getStatusText()).append("\r\n")
+			http.append("HTTP/1.0 ")
+				.append(statusCode)
+				.append(" ")
+				.append(getStatusText())
+				.append("\r\n")
 
 			for (header in headers) {
-				http.append(header.getName()).append(": ").append(header.getValue()).append("\r\n")
+				http.append(header.getName())
+					.append(": ")
+					.append(header.getValue())
+					.append("\r\n")
 			}
 
 			http.append("\r\n")

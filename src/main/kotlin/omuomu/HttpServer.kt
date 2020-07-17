@@ -16,7 +16,7 @@ const val MAX_AVAILABLE = 10
 class HttpServer {
 
     val Semaphore = Semaphore(MAX_AVAILABLE)
-    private var documentRoot: File?
+    private var documentRoot: File
     private var listenPort: Int
 
     constructor(listenPort: Int, documentRoot: File) {
@@ -35,7 +35,8 @@ class HttpServer {
                 try {
                     val input: InputStream = sockAccept.getInputStream()
                     val output: OutputStream = sockAccept.getOutputStream()
-                    Http10Processor(this.documentRoot!!).doHttp(input, output)
+                    Http10Processor(this.documentRoot).doHttp(input, output)
+
                 } catch(e: Throwable) {
                     e.printStackTrace(System.err)
                     throw RuntimeException(e)

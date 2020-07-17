@@ -49,7 +49,7 @@ class Http10Processor: HttpProcessor {
 				return
 			}
 
-			val contentType = ContentTypeResolver().getContentType(path.getAbsolutePath()))
+			val contentType = ContentTypeResolver().getContentType(path.getAbsolutePath())
 			res.setStatusCode(200)
 			res.addHeader(HttpHeaderImpl("Content-Type", contentType))
 			sendFile(res.getOutputStream(), path)
@@ -65,17 +65,14 @@ class Http10Processor: HttpProcessor {
 	private fun sendFile(out: OutputStream, path: File) {
 
 		var input: FileInputStream = FileInputStream(path)
-		// var buf: ByteArray = ByteArray(1500)
-		// var len: Int = input.read(buf, 0, buf.size)
-		// out.write(buf, 0, len)
 
 		while (true) {
 			var buf: ByteArray = ByteArray(1500)
 			var len: Int = input.read(buf, 0, buf.size)
 			if (len < 0) {
-				break;
+				break
 			}
-			out.write(buf, 0, len);
+			out.write(buf, 0, len)
 		}
 	}
 

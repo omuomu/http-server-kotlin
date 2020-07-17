@@ -8,31 +8,40 @@ import omuomu.HttpRequest
 import omuomu.HttpRequestParser
 import omuomu.HttpRequest.HttpMethod
 
-const val MAX_REQUEST = 128
-
 class HttpRequestParserImpl: HttpRequestParser {
+
     override fun parse(input: InputStream): HttpRequest {
         val reader: BufferedReader = input.bufferedReader(Charsets.ISO_8859_1)
-        val requestLine: String? = reader.readLine()
 
-        if (requestLine == null) {
-            throw IOException("failed to read request-line")
-        }
-        val parts:Array<String> = requestLine.split(" ").toTypedArray()
- 
-        if (parts.size != 3) {
-            throw IOException("illegal request-line")
-        }
+        val parts: Array<String> = this.requestParser(reader)
 
         val method: HttpMethod = HttpMethod.valueOf(parts[0])
         val path: String = parts[1]
         val httpVersion: String = parts[2]
-
+        val headers: Array<HttpHeader> = this.lineParser(reader)
         
+        return HttpRequestImpl(method, path, headers)
+    }
+
+    private fun requestParser (reader: BufferedReader):Array<String> {
+        val requestLine: String? = reader.readLine()
+        if (requestLine == null) {
+            throw IOException("failed to read request-line")
+        }
+
+        val parts:Array<String> = requestLine.split(" ").toTypedArray()
+        if (parts.size != 3) {
+            throw IOException("illegal request-line")
+        }
+
+        return parts
+    }
+
+    private fun lineParser (reader: BufferedReader): Array<HttpHeader> {
         var headers: Array<HttpHeader> = arrayOf<HttpHeader>()
 
         while(true) {
-            var line: String? = reader.readLine()
+            var line: String = reader.readLine()
             if(line.isNullOrBlank()) {
                 break
             }
@@ -47,6 +56,6 @@ class HttpRequestParserImpl: HttpRequestParser {
 
             headers += HttpHeaderImpl(name, value)
         }
-        return HttpRequestImpl(method, path, headers)
+        return headers
     }
 }

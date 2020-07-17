@@ -29,9 +29,9 @@ class HttpRequestImpl: HttpRequest {
     }
 
     override fun getHeader(name: String): HttpHeader? {
-        for(h in headers) {
-            if(name.equals(h.getName())) {
-                return h
+        for(header in headers) {
+            if(name.equals(header.getName())) {
+                return header
             }
         }
         return null

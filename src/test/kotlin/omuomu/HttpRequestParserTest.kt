@@ -27,7 +27,7 @@ class HttpRequestParseTest {
         val request: HttpRequest = parser.parse(input)
 
         assertEquals(request.getMethod(), HttpMethod.GET)
-        assertEquals(request.getPath(), "./index.html")
+        assertEquals(request.getPath(), "/index.html")
 
         val headers: Array<HttpHeader> = request.getHeaders()
         assertEquals(headers.size, 3)
@@ -54,7 +54,7 @@ class HttpRequestParseTest {
         val request: HttpRequest = parser.parse(input)
 
         assertEquals(request.getMethod(), HttpMethod.GET)
-        assertEquals(request.getPath(), "./index.html")
+        assertEquals(request.getPath(), "/index.html")
 
         val headers: Array<HttpHeader> = request.getHeaders()
         assertEquals(headers.size, 3)
