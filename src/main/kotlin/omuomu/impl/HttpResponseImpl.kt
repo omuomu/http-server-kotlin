@@ -55,7 +55,6 @@ class HttpResponseImpl(output: OutputStream): HttpResponse, Closeable {
 			}
 
 			http.append("\r\n")
-
 			return http.toString().toByteArray(Charsets.ISO_8859_1)
 		} catch (e: UnsupportedEncodingException) {
 			throw RuntimeException(e)

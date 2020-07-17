@@ -13,6 +13,6 @@ public interface HttpRequest {
 
     fun getHeaders(): Array<HttpHeader>
 
-    fun getHeader(name: String): HttpHeader
+    fun getHeader(name: String): HttpHeader?
 
 }

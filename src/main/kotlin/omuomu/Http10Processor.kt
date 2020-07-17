@@ -17,11 +17,11 @@ import omuomu.HttpHeader
 import omuomu.impl.HttpResponseImpl
 import omuomu.ContentTypeResolver
 
-class Http10Processor(documentRoot: File): HttpProcessor {
+class Http10Processor: HttpProcessor {
 
 	private var documentRoot: File? = null
 
-	init{
+	constructor(documentRoot: File){
 		this.documentRoot = documentRoot
 	}
 	override fun doHttp(input: InputStream, output: OutputStream) {
@@ -34,29 +34,24 @@ class Http10Processor(documentRoot: File): HttpProcessor {
 
 			var keepAlive: Boolean = true
 
-			var connectionHeader: HttpHeader = req.getHeader("Connection")
+			var connectionHeader: HttpHeader? = req.getHeader("Connection")
+
 			if (connectionHeader != null) {
-				if("close".equals(connectionHeader.getValue(), ignoreCase = true)){
+				if(connectionHeader.getValue().equals("close")){
 					keepAlive = false
 				}
 			}
 			val res: HttpResponse = HttpResponseImpl(output)
-
-			// res.setStatusCode(200)
-			// res.addHeader(HttpHeaderImpl("Server", "ore-server"))
-			// res.addHeader(HttpHeaderImpl("Content-Type", "text/plain"))
 			val path: File = getRealPath(req)
 
-			// res.getOutputStream().write("Hello".toByteArray())
 			if (!path.exists()) {
 				res.setStatusCode(404)
 				return
 			}
 
+			val contentType = ContentTypeResolver().getContentType(path.getAbsolutePath()))
 			res.setStatusCode(200)
-			res.addHeader(
-					HttpHeaderImpl("Content-Type", ContentTypeResolver().getContentType(path.getAbsolutePath())))
-
+			res.addHeader(HttpHeaderImpl("Content-Type", contentType))
 			sendFile(res.getOutputStream(), path)
 
 			if(!keepAlive) {
