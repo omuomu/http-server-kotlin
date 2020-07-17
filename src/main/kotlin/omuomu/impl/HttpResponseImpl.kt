@@ -73,7 +73,6 @@ class HttpResponseImpl(output: OutputStream): HttpResponse, Closeable {
             200 -> return "OK"
             404 -> return "Not Found"
             500 -> return "Internal Server Error"
-            // 501 -> 
             else ->	return "Not Implemented"
         }
 	}

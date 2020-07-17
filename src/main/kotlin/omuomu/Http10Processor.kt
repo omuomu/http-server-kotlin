@@ -30,25 +30,28 @@ class Http10Processor: HttpProcessor {
 
 		while(true) {
 			val parser: HttpRequestParser = HttpRequestParserFactory().getParser()
-			val req: HttpRequest = parser.parse(input)
 
+			val req: HttpRequest = parser.parse(input)
 			var keepAlive: Boolean = true
 
-			var connectionHeader: HttpHeader? = req.getHeader("Connection")
-
+			// connectionHeaderの値がcloseの時切断
+			val connectionHeader: HttpHeader? = req.getHeader("Connection")
 			if (connectionHeader != null) {
 				if(connectionHeader.getValue().equals("close")){
 					keepAlive = false
 				}
 			}
-			val res: HttpResponse = HttpResponseImpl(output)
-			val path: File = getRealPath(req)
 
+			val res: HttpResponse = HttpResponseImpl(output)
+
+			// パスが存在するか
+			val path: File = getRealPath(req)
 			if (!path.exists()) {
 				res.setStatusCode(404)
 				return
 			}
 
+			// Content-Typeのレスポンス生成
 			val contentType = ContentTypeResolver().getContentType(path.getAbsolutePath())
 			res.setStatusCode(200)
 			res.addHeader(HttpHeaderImpl("Content-Type", contentType))
@@ -64,11 +67,11 @@ class Http10Processor: HttpProcessor {
 
 	private fun sendFile(out: OutputStream, path: File) {
 
-		var input: FileInputStream = FileInputStream(path)
+		val input: FileInputStream = FileInputStream(path)
 
 		while (true) {
-			var buf: ByteArray = ByteArray(1500)
-			var len: Int = input.read(buf, 0, buf.size)
+			val buf: ByteArray = ByteArray(1500)
+			val len: Int = input.read(buf, 0, buf.size)
 			if (len < 0) {
 				break
 			}
@@ -86,7 +89,7 @@ class Http10Processor: HttpProcessor {
 		if (path.startsWith("/")) {
 			path = path.substring(1)
 		}
-
+		// File("/foo/./bar/gav/../baaz").normalize() is File("/foo/bar/baaz")
 		return File(documentRoot, path).normalize()
 	}
 

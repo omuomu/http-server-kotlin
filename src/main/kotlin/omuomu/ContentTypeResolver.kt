@@ -6,9 +6,9 @@ class ContentTypeResolver {
 
 	fun getContentType(fileName: String): String {
 
-        val ext: String = getFileExtension(fileName)
+        val fileExtention: String = getFileExtension(fileName)
 
-		when (ext) {
+		when (fileExtention) {
             "html", "htm" -> return "text/html"
             "css"         -> return "text/css"
             "js"          -> return "text/javascript"
@@ -20,7 +20,7 @@ class ContentTypeResolver {
             }
         }
     }
-
+    // ファイルパスから拡張子を返す
 	private fun getFileExtension(fileName: String): String {
 
         val pathParts: Array<String> = fileName.split("/").toTypedArray()        
@@ -29,7 +29,8 @@ class ContentTypeResolver {
         val pos: Int = lastPart.lastIndexOf(".")
         if(pos == -1) {
             throw IOException("illegal file name")
-        }else if (pos > 0 && pos < (lastPart.length - 1)) {
+        } else if (pos > 0 && pos < (lastPart.length - 1)) {
+            // "."から後ろの文字列を取り出す
             val extension: String = lastPart.substring(pos + 1)
 			return extension.toLowerCase()
 		}
